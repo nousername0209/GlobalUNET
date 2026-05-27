@@ -1,0 +1,31 @@
+experiment_name: cityscapes_unetpp
+dataset:
+  name: cityscapes
+  root: data
+  train_split: train
+  val_split: val
+  num_classes: 19
+  ignore_index: 255
+model:
+  name: unetpp
+  in_channels: 3
+  channels: [64, 128, 256, 512, 1024]
+  deep_supervision: false
+training:
+  seed: 42
+  device: cuda
+  amp: true
+  epochs: 50
+  batch_size: 4
+  num_workers: 4
+  image_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+augmentation:
+  horizontal_flip: true
+  color_jitter: true
+profiling:
+  warmup: 10
+  iterations: 50
+output:
+  root: runs

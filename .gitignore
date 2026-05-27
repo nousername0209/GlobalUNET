@@ -6,6 +6,7 @@ venv/
 data/
 runs/
 checkpoints/
+upload_tmp/
 *.pt
 *.pth
 
